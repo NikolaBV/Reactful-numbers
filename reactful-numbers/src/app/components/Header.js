@@ -1,6 +1,6 @@
 import React from "react";
 
 function Header() {
-  return <h1 className="title">Reactful numbers!</h1>;
+  return <h1 className="header">Reactful numbers</h1>;
 }
 export default Header;
