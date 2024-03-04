@@ -49,6 +49,11 @@ body {
   height: 3rem;
   width: 3rem;
   border-radius: 80%;
+  border: none;
+}
+button {
+  font-weight: 200;
+  font-size: 1.5rem;
 }
 .zero-button {
   height: 3rem;
@@ -60,4 +65,20 @@ body {
 }
 .expressions-box:focus {
   outline: none;
+}
+.orange {
+  background-color: #ff9f0a;
+  color: white;
+}
+.grey {
+  background-color: #a5a5a5;
+  color: black;
+}
+.dark-grey {
+  background-color: #333333;
+  color: white;
+}
+.button:active {
+  background-color: white;
+  transition: background-color 0.3s ease;
 }

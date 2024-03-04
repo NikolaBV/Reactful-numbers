@@ -1,5 +1,5 @@
 import React from "react";
-function Button(buttonName) {
-  return <button className="button">Button</button>;
+function Button({ buttonColor, buttonText }) {
+  return <button className={`button ${buttonColor}`}>{buttonText}</button>;
 }
 export default Button;
