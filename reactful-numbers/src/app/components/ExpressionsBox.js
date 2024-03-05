@@ -1,8 +1,6 @@
 import React from "react";
 
-function ExpressionsBox() {
-  return (
-    <input className="expressions-box" placeholder="Input" dir="rtl"></input>
-  );
+function ExpressionsBox({ value }) {
+  return <input className="expressions-box" value={value}></input>;
 }
 export default ExpressionsBox;

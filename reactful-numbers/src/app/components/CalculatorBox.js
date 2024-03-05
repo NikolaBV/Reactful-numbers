@@ -1,12 +1,31 @@
+"use client";
 import React from "react";
 import ExpressionsBox from "./ExpressionsBox";
 import ButtonsBox from "./ButtonsBox";
-
+import { useState } from "react";
 function CalculatorBox() {
+  const [inputValue, setInputValue] = useState("");
+  const handleButtonClick = (text) => {
+    setInputValue(inputValue + text);
+  };
+  const clearInput = () => {
+    setInputValue("");
+  };
+  const invertSign = () => {
+    setInputValue(inputValue * -1);
+  };
+  const percentage = () => {
+    setInputValue(inputValue / 100);
+  };
   return (
     <div className="calculator-box">
-      <ExpressionsBox></ExpressionsBox>
-      <ButtonsBox></ButtonsBox>
+      <ExpressionsBox value={inputValue}></ExpressionsBox>
+      <ButtonsBox
+        setInputValue={handleButtonClick}
+        clearInput={clearInput}
+        invertSign={invertSign}
+        percentage={percentage}
+      ></ButtonsBox>
     </div>
   );
 }
