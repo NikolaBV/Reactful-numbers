@@ -1,67 +1,168 @@
 import React from "react";
 import Button from "./Button";
-function ButtonsBox() {
+
+function ButtonsBox({
+  setInputValue,
+  clearInput,
+  invertSign,
+  percentage,
+  expressionBoxValue,
+  equals,
+}) {
   return (
     <div className="buttons-box">
       <div className="grid-container">
         <div>
-          <Button buttonColor="grey" buttonText="AC"></Button>
+          <Button
+            buttonColor="grey"
+            buttonText={expressionBoxValue == "" ? "AC" : "C"}
+            onClick={() => clearInput()}
+          ></Button>
         </div>
         <div>
-          <Button buttonColor="grey" buttonText="+/-"></Button>
+          <Button
+            buttonColor="grey"
+            buttonText="+/-"
+            onClick={() => invertSign()}
+          ></Button>
         </div>
         <div>
-          <Button buttonColor="grey" buttonText="%"></Button>
+          <Button
+            buttonColor="grey"
+            buttonText="%"
+            onClick={() => percentage()}
+          ></Button>
         </div>
         <div>
-          <Button buttonColor="orange" buttonText="/"></Button>
+          <Button
+            buttonColor="orange"
+            buttonText="/"
+            onClick={
+              String(expressionBoxValue).includes("/")
+                ? () => equals()
+                : () => setInputValue("/")
+            }
+          ></Button>
         </div>
         <div>
-          <Button buttonColor="dark-grey" buttonText="7"></Button>
+          <Button
+            buttonColor="dark-grey"
+            buttonText="7"
+            onClick={() => setInputValue("7")}
+          ></Button>
         </div>
         <div>
-          <Button buttonColor="dark-grey" buttonText="8"></Button>
+          <Button
+            buttonColor="dark-grey"
+            buttonText="8"
+            onClick={() => setInputValue("8")}
+          ></Button>
         </div>
         <div>
-          <Button buttonColor="dark-grey" buttonText="9"></Button>
+          <Button
+            buttonColor="dark-grey"
+            buttonText="9"
+            onClick={() => setInputValue("9")}
+          ></Button>
         </div>
         <div>
-          <Button buttonColor="orange" buttonText="%"></Button>
+          <Button
+            buttonColor="orange"
+            buttonText="*"
+            onClick={
+              String(expressionBoxValue).includes("*")
+                ? () => equals()
+                : () => setInputValue("*")
+            }
+          ></Button>
         </div>
         <div>
-          <Button buttonColor="dark-grey" buttonText="4"></Button>
+          <Button
+            buttonColor="dark-grey"
+            buttonText="4"
+            onClick={() => setInputValue("4")}
+          ></Button>
         </div>
         <div>
-          <Button buttonColor="dark-grey" buttonText="5"></Button>
+          <Button
+            buttonColor="dark-grey"
+            buttonText="5"
+            onClick={() => setInputValue("5")}
+          ></Button>
         </div>
         <div>
-          <Button buttonColor="dark-grey" buttonText="6"></Button>
+          <Button
+            buttonColor="dark-grey"
+            buttonText="6"
+            onClick={() => setInputValue("6")}
+          ></Button>
         </div>
         <div>
-          <Button buttonColor="orange" buttonText="-"></Button>
+          <Button
+            buttonColor="orange"
+            buttonText="-"
+            onClick={
+              String(expressionBoxValue).includes("-")
+                ? () => equals()
+                : () => setInputValue("-")
+            }
+          ></Button>
         </div>
         <div>
-          <Button buttonColor="dark-grey" buttonText="1"></Button>
+          <Button
+            buttonColor="dark-grey"
+            buttonText="1"
+            onClick={() => setInputValue("1")}
+          ></Button>
         </div>
         <div>
-          <Button buttonColor="dark-grey" buttonText="2"></Button>
+          <Button
+            buttonColor="dark-grey"
+            buttonText="2"
+            onClick={() => setInputValue("2")}
+          ></Button>
         </div>
         <div>
-          <Button buttonColor="dark-grey" buttonText="3"></Button>
+          <Button
+            buttonColor="dark-grey"
+            buttonText="3"
+            onClick={() => setInputValue("3")}
+          ></Button>
         </div>
         <div>
-          <Button buttonColor="orange" buttonText="+"></Button>
+          <Button
+            buttonColor="orange"
+            buttonText="+"
+            onClick={
+              String(expressionBoxValue).includes("+")
+                ? () => equals()
+                : () => setInputValue("+")
+            }
+          ></Button>
         </div>
       </div>
       <div className="bottom-row">
         <div className="button zero-button">
-          <Button buttonColor="dark-grey" buttonText="0"></Button>
+          <Button
+            buttonColor="dark-grey"
+            buttonText="0"
+            onClick={() => setInputValue("0")}
+          ></Button>
         </div>
         <div>
-          <Button buttonColor="dark-grey" buttonText=","></Button>
+          <Button
+            buttonColor="dark-grey"
+            buttonText=","
+            //TODO Add a case for limiting the places where decimal points can be added
+            onClick={() => setInputValue(".")}
+          ></Button>
         </div>
         <div>
-          <Button buttonColor="orange" buttonText="="></Button>
+          <Button
+            buttonColor="orange"
+            buttonText="="
+            onClick={() => equals()}
+          ></Button>
         </div>
       </div>
     </div>
