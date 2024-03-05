@@ -17,6 +17,10 @@ function CalculatorBox() {
   const percentage = () => {
     setInputValue(inputValue / 100);
   };
+  const equals = () => {
+    setInputValue(eval(inputValue));
+  };
+
   return (
     <div className="calculator-box">
       <ExpressionsBox value={inputValue}></ExpressionsBox>
@@ -25,6 +29,8 @@ function CalculatorBox() {
         clearInput={clearInput}
         invertSign={invertSign}
         percentage={percentage}
+        equals={equals}
+        expressionBoxValue={inputValue}
       ></ButtonsBox>
     </div>
   );

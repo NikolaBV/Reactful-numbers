@@ -1,14 +1,21 @@
 import React from "react";
 import Button from "./Button";
 
-function ButtonsBox({ setInputValue, clearInput, invertSign, percentage }) {
+function ButtonsBox({
+  setInputValue,
+  clearInput,
+  invertSign,
+  percentage,
+  expressionBoxValue,
+  equals,
+}) {
   return (
     <div className="buttons-box">
       <div className="grid-container">
         <div>
           <Button
             buttonColor="grey"
-            buttonText="AC"
+            buttonText={expressionBoxValue == "" ? "AC" : "C"}
             onClick={() => clearInput()}
           ></Button>
         </div>
@@ -27,7 +34,15 @@ function ButtonsBox({ setInputValue, clearInput, invertSign, percentage }) {
           ></Button>
         </div>
         <div>
-          <Button buttonColor="orange" buttonText="/"></Button>
+          <Button
+            buttonColor="orange"
+            buttonText="/"
+            onClick={
+              String(expressionBoxValue).includes("/")
+                ? () => equals()
+                : () => setInputValue("/")
+            }
+          ></Button>
         </div>
         <div>
           <Button
@@ -51,7 +66,15 @@ function ButtonsBox({ setInputValue, clearInput, invertSign, percentage }) {
           ></Button>
         </div>
         <div>
-          <Button buttonColor="orange" buttonText="%"></Button>
+          <Button
+            buttonColor="orange"
+            buttonText="*"
+            onClick={
+              String(expressionBoxValue).includes("*")
+                ? () => equals()
+                : () => setInputValue("*")
+            }
+          ></Button>
         </div>
         <div>
           <Button
@@ -78,7 +101,11 @@ function ButtonsBox({ setInputValue, clearInput, invertSign, percentage }) {
           <Button
             buttonColor="orange"
             buttonText="-"
-            onClick={() => setInputValue("-")}
+            onClick={
+              String(expressionBoxValue).includes("-")
+                ? () => equals()
+                : () => setInputValue("-")
+            }
           ></Button>
         </div>
         <div>
@@ -106,7 +133,11 @@ function ButtonsBox({ setInputValue, clearInput, invertSign, percentage }) {
           <Button
             buttonColor="orange"
             buttonText="+"
-            onClick={() => setInputValue("+")}
+            onClick={
+              String(expressionBoxValue).includes("+")
+                ? () => equals()
+                : () => setInputValue("+")
+            }
           ></Button>
         </div>
       </div>
@@ -122,11 +153,16 @@ function ButtonsBox({ setInputValue, clearInput, invertSign, percentage }) {
           <Button
             buttonColor="dark-grey"
             buttonText=","
-            onClick={() => setInputValue(",")}
+            //TODO Add a case for limiting the places where decimal points can be added
+            onClick={() => setInputValue(".")}
           ></Button>
         </div>
         <div>
-          <Button buttonColor="orange" buttonText="="></Button>
+          <Button
+            buttonColor="orange"
+            buttonText="="
+            onClick={() => equals()}
+          ></Button>
         </div>
       </div>
     </div>

@@ -16,12 +16,13 @@ body {
 }
 .app {
   background-image: var(--lighter-gradient);
+  border-radius: 10%;
 }
 .app-content {
   padding: 2rem;
 }
 .header-box {
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 .header {
   color: #ddd;
